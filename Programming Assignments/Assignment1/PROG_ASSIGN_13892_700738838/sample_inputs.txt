@@ -1,0 +1,51 @@
+####
+For Insert Operation sample movie data of 2 documents is provided below
+
+please provide input in body - raw - json type
+#### 
+
+[
+    {
+        "title": "Test Movie",
+        "type": "Show",
+        "id": "tm84618",
+        "description": "This is sample movie for demo.",
+        "release_year": 2022,
+        "age_certification": "A",
+        "genres": [
+            "crime",
+            "drama"
+        ],
+        "production_countries": [
+            "US"
+        ],
+        "runtime": 113,
+        "imdb_score": 8.3
+    },
+    {
+        "title": "Test Movie2",
+        "type": "Show",
+        "id": "tm84622",
+        "description": "This is sample movie for demo.",
+        "release_year": 2022,
+        "age_certification": "A",
+        "runtime": 113,
+        "imdb_score": 8.4
+    }
+]
+
+
+
+
+### 
+For update operation sample data, after inserting above documents - we are updating
+use: Title: Test Movie   -- http://127.0.0.1:5000/api/Test Movie
+
+by updating only title, description, imdb_score   - please provide input in body - raw - json type
+###
+
+{
+    "title":"Test Movie",
+    "description": "Hello World, This is a sample demo Test Movie",
+    "imdb_score" :10
+}
