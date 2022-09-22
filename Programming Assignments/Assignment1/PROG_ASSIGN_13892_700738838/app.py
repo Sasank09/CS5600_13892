@@ -1,3 +1,4 @@
+from turtle import title
 from flask import Flask, request, jsonify, Response
 from pymongo import MongoClient
 import json
@@ -107,16 +108,20 @@ def update_netflix_document(movie_title):
                 new_data_update = {
                         "title" : request_data["title"],
                         "description" : request_data["description"],
-                        "imdb_score" : request_data["imdb_score"]
+                        "imdb_score" : float(request_data["imdb_score"])
                 }
-                updated_film_cursor = netflix_coll_instance.find_one_and_update({"title":movie_title},{"$set" :new_data_update})
-                if updated_film_cursor :
-                        retrieve_updated_data = json.loads(dumps(netflix_coll_instance.find({"_id" : updated_film_cursor["_id"]})))
-                        response = Response(f"1 Movie Document is Updated Successfully \n{dumps(retrieve_updated_data, indent=2)}", status =200, mimetype='application/json')
+                updated_film_cursor = netflix_coll_instance.update_many({"title": {"$regex":'^'+movie_title+'$', "$options":'i'}},{"$set" :new_data_update})
+                if updated_film_cursor.modified_count>0 :
+                        updated_doc_cursor = netflix_coll_instance.find({"title":{"$regex":'^'+request_data["title"]+'$', "$options":'i'}})
+                        retrieved_documents = json.loads(dumps(updated_doc_cursor))
+                        response = Response(f"{updated_film_cursor.modified_count} Movie Documents are Updated Successfully \n{dumps(retrieved_documents, indent=2)}", status =200, mimetype='application/json')
+                        return response
+                elif updated_film_cursor.matched_count>0 & updated_film_cursor.modified_count==0:
+                        response = Response("No Changes are made to Update",status=200, mimetype='application/json')
                         return response
                 else:
-                        response = Response("Error in Finding & Updating File, Please Check Title",status=500, mimetype='application/json')
-                        return response
+                        response = Response("Error: Please check title",status=500, mimetype='application/json')
+                        return response  
         except Exception as ex:
                 response = Response(f"Error in Update Operation: {ex}", status=500, mimetype="application/json")
                 return response  
@@ -125,10 +130,11 @@ def update_netflix_document(movie_title):
 def delete_netflix_document(movie_title):
         try:
                 netflix_coll_instance = database_db_instance.netflix
-                deleted_film_cursor = netflix_coll_instance.find_one_and_delete({"title": movie_title})
-                retrieved_documents = json.loads(dumps(deleted_film_cursor))
-                if deleted_film_cursor:
-                        reponse = Response(f"Movie with title: \"{movie_title}\" is Successfully Deleted. \n{dumps(retrieved_documents, indent=2)}", status=200, mimetype="application/json")
+                retrieve_films = netflix_coll_instance.find({"title": movie_title}) 
+                deleted_documents = json.loads(dumps(retrieve_films))
+                deleted_film_cursor = netflix_coll_instance.delete_many({"title": {"$regex":'^'+movie_title+'$', "$options":'i'}})
+                if deleted_film_cursor.deleted_count>0:
+                        reponse = Response(f"{deleted_film_cursor.deleted_count} Movie with title: \"{movie_title}\" are Successfully Deleted. \n{dumps(deleted_documents, indent=2)}", status=200, mimetype="application/json")
                         return reponse
                 else:
                         response = Response(f"File not found with title: \"{movie_title}\".", status= 500, mimetype = "application/json") 
@@ -141,7 +147,7 @@ def delete_netflix_document(movie_title):
 def get_netflix_document_by_title(movie_title):
         try:     
                 netflix_coll_instance = database_db_instance.netflix
-                retrieved_documents_cursor = netflix_coll_instance.find({"title":movie_title},{})
+                retrieved_documents_cursor = netflix_coll_instance.find({"title": {"$regex":'^'+movie_title+'$', "$options":'i'}},{})
                 retrieved_documents = json.loads(dumps(retrieved_documents_cursor))
                 count = len(retrieved_documents)
                 if count>0 :
