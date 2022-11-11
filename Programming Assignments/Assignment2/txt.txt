@@ -1,0 +1,107 @@
+eyJhbGciOiJQUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y3lub3RsdWZmeUBnbWFpbC5jb20iLCJtaXhwYW5lbElkIjoiMTg0NDAzZDA5ZmQ4MGYtMDc1OTFlY2ZmODA0MTctMjYwMjFlNTEtMTQ0MDAwLTE4NDQwM2QwOWZlMjA5IiwibWl4cGFuZWxQcm9qZWN0SWQiOiI0YmZiMjQxNGFiOTczYzc0MWI2ZjA2N2JmMDZkNTU3NSIsIm9yZyI6IlVDTSIsInB1YiI6Im5lbzRqLmNvbSIsInJlZyI6IlYgTCBTYXNhbmsgVGlwcGFyYWp1Iiwic3ViIjoibmVvNGotZGVza3RvcCIsImV4cCI6MTY5OTE1MzMzNSwidmVyIjoiKiIsImlzcyI6Im5lbzRqLmNvbSIsIm5iZiI6MTY2NzYxNzMzNSwiaWF0IjoxNjY3NjE3MzM1LCJqdGkiOiJoeURkaHV5TlgifQ.y52JOuR7HGX3LSn-Wyp53hA9X9a3T27XZpIXdVC_XGsYZLsWoPnXCDTRvekRYce_riBnMySoNz0Z3Tm43nd9LQEDB4b-3SBeG0NvGmrp4paMe7NrVUXJOhWzDim9_jErVCrdEIK0t-0aUDNcSE56_5osW8lQ9dRxeRM2_mIXIS7qhBc54Q9PJuwLHtsJ13eFGZ0kczFQLTrK7H_HBE9k8qIS4u6vn86-qIoIOmIwaeeqdpFfIGApF73IouafbsSJxh-KXA3u5lRyIlZv5BNeIQsQVE70c3ByjPpsyac1kGJgxw36gSgdA8TDSck1B0sTiZleXYQyquf-k1-d67NJ9w
+
+neo4j
+Admin1234s9499
+
+remote: s9499lkkcsGYbmY3C3Z_kX0Mrm8gWmjzuYvVCt_VdIeW_nkw
+
+
+
+LOAD CSV WITH HEADERS FROM 'file:///netflix_titles.csv' AS row
+WITH row.show_id AS i, row.type AS ty, row.title AS t, row.release_year AS r, row.rating AS ra, row.duration AS du, row.description as d
+MERGE (n:Movie{show_id:i})
+SET n.type = row.type
+SET n.title = row.title
+SET n.release_year = toInteger(trim(row.release_year))
+SET n.rating = row.rating
+SET n.duration = row.duration
+SET n.description = row.description;
+
+
+
+
+LOAD CSV WITH HEADERS FROM 'file:///netflix_titles.csv' AS row
+WITH row.title AS t, SPLIT(row.cast,',') AS a
+UNWIND t as t1
+UNWIND a as a1
+WITH *, trim(a1) as a2
+MERGE (:Person{name:a2})
+WITH *
+MATCH(mo:Movie{title:t1}),(ac:Person{name:a2})
+MERGE(ac) - [:ACTED_IN]->(mo)
+RETURN t1,a2
+
+
+LOAD CSV WITH HEADERS FROM 'file:///netflix_titles.csv' AS row
+WITH row.title AS t, SPLIT(row.director,',') AS a
+UNWIND t as t1
+UNWIND a as a1
+WITH *, trim(a1) as a2
+MERGE (:Person{name:a2})
+WITH *
+MATCH(mo:Movie{title:t1}),(ac:Person{name:a2})
+MERGE(ac)-[:DIRECTED]->(mo)
+RETURN t1,a2
+
+
+LOAD CSV WITH HEADERS FROM 'file:///netflix_titles.csv' AS row
+WITH row.title AS t, SPLIT(row.country,',') AS a
+UNWIND t as t1
+UNWIND a as a1
+WITH *, trim(a1) as a2
+MERGE (:Country{name:a2})
+WITH *
+MATCH(mo:Movie{title:t1}),(cn:Country{name:a2})
+MERGE(mo)-[:DISTRIBUTED_IN]->(cn)
+RETURN t1,a2
+
+
+# CREATE CONSTRAINT con_title FOR (m:Movie) REQUIRE m.title is UNIQUE
+
+
+
+
+------
+after uploading netflix file
+
+MATCH (row:ShowCast)
+WITH row.title AS t, SPLIT(row.cast,',') AS a
+UNWIND t as t1
+UNWIND a as a1
+WITH *, trim(a1) as a2
+MERGE (:Person{name:a2})
+WITH *
+MATCH(mo:Movie{title:t1}),(ac:Person{name:a2})
+MERGE(ac) - [:ACTED_IN]->(mo)
+RETURN t1,a2
+
+
+MATCH (row:ShowCast)
+WITH row.title AS t, SPLIT(row.director,',') AS a
+UNWIND t as t1
+UNWIND a as a1
+WITH *, trim(a1) as a2
+MERGE (:Person{name:a2})
+WITH *
+MATCH(mo:Movie{title:t1}),(ac:Person{name:a2})
+MERGE(ac) - [:DIRECTED]->(mo)
+RETURN t1,a2
+
+
+MATCH (row:ShowCast)
+WITH row.title AS t, SPLIT(row.country,',') AS a
+UNWIND t as t1
+UNWIND a as a1
+WITH *, trim(a1) as a2
+MERGE (:Country{name:a2})
+WITH *
+MATCH(mo:Movie{title:t1}),(co:Country{name:a2})
+MERGE(co)<-[:DISTRIBUTED_IN]-(mo)
+RETURN t1,a2
+
+
+match(n:Person) Where n.name="" DETACH DELETE n
+
+match (n:ShowCast) Delete n
+
+
