@@ -1,0 +1,179 @@
+[{
+  "_id": {
+    "$oid": "638e85e8b590c58538ab9c6c"
+  },
+  "username": "Sasank",
+  "photo": "photo_user_638e85e8b590c58538ab9c6c.png",
+  "email": "thipparajusasank@gmail.com",
+  "password": "$2a$10$sOC1IP6qyn8QFQA8cF4guu2kmfgc30Hg7fKqjs2XNiQAxB0Hi3K8m",
+  "role": "user",
+  "readList": [
+    {
+      "$oid": "638f6a4630bfb02d7c76478f"
+    }
+  ],
+  "readListLength": 1,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670284776618"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670474828001"
+    }
+  },
+  "__v": 1,
+  "resetPasswordExpire": {
+    "$date": {
+      "$numberLong": "1670290021590"
+    }
+  },
+  "resetPasswordToken": "814857af7d5c0d477df6e982b7d46e73d4eac9e657d059f72231cb0775558383",
+  "blockedUsers": []
+},{
+  "_id": {
+    "$oid": "638e8865122c3c198197ba5e"
+  },
+  "username": "Sasank1",
+  "photo": "photo_user_638e8865122c3c198197ba5e.png",
+  "email": "vxt88380@ucmo.edu",
+  "password": "$2a$10$7.wAKjAtRuXP7YnllAU/b.zHwEzKBHV9Kt.jnxFIr0EZ9n4cF1.Wq",
+  "role": "user",
+  "readList": [],
+  "readListLength": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670285413980"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670443659110"
+    }
+  },
+  "__v": 2,
+  "blockedUsers": []
+},{
+  "_id": {
+    "$oid": "638e9d6edc01a68394651889"
+  },
+  "username": "Jhon Doe",
+  "photo": "photo_user_638e9d6edc01a68394651889.png",
+  "email": "test@mail.com",
+  "password": "$2a$10$DSFQG/0Hzuw///F9HgAvculr9Ak68Rd0Kqg91b8sWzZ8sRK86ZyNy",
+  "role": "user",
+  "readList": [],
+  "readListLength": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670290798217"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670291817437"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638ee4bd33eb64e72e205da9"
+  },
+  "username": "admin",
+  "photo": "photo_user_638ee4bd33eb64e72e205da9.png",
+  "email": "admin@mail.com",
+  "password": "$2a$10$pTOGROzZPM3z65Jt0ykOJOMcLfRzsOqFxUeyjgTcTI0XItDSZUVSW",
+  "role": "admin",
+  "readList": [],
+  "readListLength": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670309053628"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670309125843"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638ee86845a0f3b5f266edf2"
+  },
+  "username": "Shameer",
+  "photo": "photo_user_638ee86845a0f3b5f266edf2.png",
+  "email": "shameer@gmail.com",
+  "password": "$2a$10$WlH4RFgFrDWO3kc1Vr1AEOz3PpLg/dD7XVeR0a2JfneEZzAsd4QH2",
+  "role": "user",
+  "readList": [],
+  "readListLength": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670309992132"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670310046417"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638f62f330bfb02d7c7646f6"
+  },
+  "username": "Chandbabu",
+  "photo": "photo_user_638f62f330bfb02d7c7646f6.png",
+  "email": "shaik@gmail.com",
+  "password": "$2a$10$wbHSlh5yS.q1y0ldIeI4OORCdJmRIzmYr8qwh.YWDPL2WlasULzfG",
+  "role": "user",
+  "readList": [],
+  "readListLength": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670341363842"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670341688193"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "638f6a1230bfb02d7c76477f"
+  },
+  "username": "jeevan",
+  "photo": "user.png",
+  "email": "jeevan@gmail.com",
+  "password": "$2a$10$ks8ERzLNAtEk.vjYBj4y2.Cmcfk3MD/xmbqM5LGbIUEyPbU4rFCu.",
+  "role": "user",
+  "readList": [
+    {
+      "$oid": "638f6a4630bfb02d7c76478f"
+    },
+    {
+      "$oid": "638e86e6b590c58538ab9c73"
+    }
+  ],
+  "readListLength": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670343186510"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670529726699"
+    }
+  },
+  "__v": 153,
+  "blockedUsers": [
+    {
+      "$oid": "638e8865122c3c198197ba5e"
+    }
+  ]
+}]

@@ -1,0 +1,183 @@
+[{
+  "_id": {
+    "$oid": "638e8faf6fd755dd7c87b602"
+  },
+  "story": {
+    "$oid": "638e88a5122c3c198197ba6f"
+  },
+  "content": "looks yummy",
+  "author": {
+    "$oid": "638e85e8b590c58538ab9c6c"
+  },
+  "likes": [],
+  "likeCount": 0,
+  "star": 4,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670287279922"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670291796016"
+    }
+  },
+  "__v": 2
+},{
+  "_id": {
+    "$oid": "638f63e930bfb02d7c76470b"
+  },
+  "story": {
+    "$oid": "638f63d630bfb02d7c7646fd"
+  },
+  "content": "Superr",
+  "author": {
+    "$oid": "638f62f330bfb02d7c7646f6"
+  },
+  "likes": [
+    {
+      "$oid": "638f6a1230bfb02d7c76477f"
+    }
+  ],
+  "likeCount": 1,
+  "star": 4,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670341609551"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670397685668"
+    }
+  },
+  "__v": 1,
+  "dislikeCount": 0,
+  "dislikes": []
+},{
+  "_id": {
+    "$oid": "638f6b4f30bfb02d7c7647f8"
+  },
+  "story": {
+    "$oid": "638f6a4630bfb02d7c76478f"
+  },
+  "content": "Its a good one",
+  "author": {
+    "$oid": "638e85e8b590c58538ab9c6c"
+  },
+  "likes": [
+    {
+      "$oid": "638e8865122c3c198197ba5e"
+    },
+    {
+      "$oid": "638e85e8b590c58538ab9c6c"
+    }
+  ],
+  "likeCount": 2,
+  "star": 4,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670343503130"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670474363947"
+    }
+  },
+  "__v": 15,
+  "dislikeCount": 1,
+  "dislikes": [
+    {
+      "$oid": "638f6a1230bfb02d7c76477f"
+    }
+  ]
+},{
+  "_id": {
+    "$oid": "638f6c1630bfb02d7c76482c"
+  },
+  "story": {
+    "$oid": "638f6a4630bfb02d7c76478f"
+  },
+  "content": "This is second comment<div><br></div>",
+  "author": {
+    "$oid": "638e8865122c3c198197ba5e"
+  },
+  "likes": [
+    {
+      "$oid": "638e8865122c3c198197ba5e"
+    },
+    {
+      "$oid": "638f6a1230bfb02d7c76477f"
+    }
+  ],
+  "likeCount": 2,
+  "star": 2,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670343702441"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670529715193"
+    }
+  },
+  "__v": 44,
+  "dislikeCount": 0,
+  "dislikes": []
+},{
+  "_id": {
+    "$oid": "63903d21c02de70126e7bbae"
+  },
+  "story": {
+    "$oid": "638f63d630bfb02d7c7646fd"
+  },
+  "content": "test",
+  "author": {
+    "$oid": "638f6a1230bfb02d7c76477f"
+  },
+  "likes": [],
+  "likeCount": 0,
+  "dislikes": [],
+  "dislikeCount": 0,
+  "star": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670397217710"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670397702261"
+    }
+  },
+  "__v": 4
+},{
+  "_id": {
+    "$oid": "6390d4235ad0ddfbc48c35a6"
+  },
+  "story": {
+    "$oid": "638e86e6b590c58538ab9c73"
+  },
+  "content": "Sample comment",
+  "author": {
+    "$oid": "638f6a1230bfb02d7c76477f"
+  },
+  "likes": [],
+  "likeCount": 0,
+  "dislikes": [],
+  "dislikeCount": 0,
+  "star": 0,
+  "createdAt": {
+    "$date": {
+      "$numberLong": "1670435876001"
+    }
+  },
+  "updatedAt": {
+    "$date": {
+      "$numberLong": "1670435876001"
+    }
+  },
+  "__v": 0
+}]
