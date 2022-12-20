@@ -31,8 +31,7 @@ connection
 
 To Change Database Connection URL : Blog -> Backend -> Config -> config.env file Update mongo DB URI
 
-#  ---  Config.env  ---
-
+ ---  Config.env  ---
 NODE_ENV = development
 PORT =5000
 URI =http://localhost:3000 #or mongodb remote url
