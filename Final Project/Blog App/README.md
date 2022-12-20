@@ -5,51 +5,41 @@ Fullstack open source blogging application made with MongoDB, Express, React & N
 
 ## Configuration and Setup
 
+Technologies Utilized:
+• Frontend: ReactJS, NextJS, CSS, JavaScript, Bootstrap
+• Backend: NodeJS
+• Database: MongoDB
+
 In order to run this project locally, 
 - Open the project in your prefered code editor.
 - Go to terminal -> New terminal (If you are using VS code)
 - Split your terminal into two (run the Frontend on one terminal and the Backend on the other terminal)
 
-In the first terminal
-
 ```
-$ cd Frontend
-$ npm install (to install frontend-side dependencies)
-$ npm run  start (to start the frontend)
+In One Terminal: from project folder location, use the below commands to start mongo DB connection
+• cd Backend
+• npm install
+• npm start
+```
+```
+In Other Terminal: from project folder location, use the below commands to start Frontend react
+connection
+• cd Frontend
+• npm install
+• npm start
 ```
 
-In the second terminal
+To Change Database Connection URL : Blog -> Backend -> Config -> config.env file Update mongo DB URI
 
-- cd Backend and Set environment variables in config.env under ./config
-- Create your mongoDB connection url, which you'll use as your MONGO_URI
-- Supply the following credentials
-
-```
 #  ---  Config.env  ---
 
 NODE_ENV = development
 PORT =5000
-URI =http://localhost:3000
+URI =http://localhost:3000 #or mongodb remote url
 MONGO_URI = 
 JWT_SECRET_KEY =
 JWT_EXPIRE = 60m
 RESET_PASSWORD_EXPIRE = 3600000 
-
-# Nodemailer
-
-SMTP_HOST =smtp.gmail.com
-SMTP_PORT =587
-EMAIL_USERNAME = example@gmail.com
-EMAIL_PASS = your_password
-```
-
-
-```
-# --- Terminal ---
-
-$ npm install (to install backend-side dependencies)
-$ npm start (to start the backend)
-```
 
 
 ##  Key Features
@@ -59,8 +49,9 @@ $ npm start (to start the backend)
 - Story searching  and pagination 
 - CRUD operations (Story create, read, update and delete)
 - Upload user ımages and story ımages  to the server
-- Liking  stories and adding stories  to the Reading list
-- Commenting  on the story
+- Liking/disliking stories and adding stories  to the Reading list
+- Commenting  on the story and like/dislike comment
+- blocking users to comment on their stories
 
 <br/>
 
@@ -99,5 +90,5 @@ This project was created using the following technologies.
 
 ####  Database 
 
- - [MongoDB ](https://www.npmjs.com/package/uuid) - It provides a free cloud service to store MongoDB collections.
+ - [MongoDB ](https://www.npmjs.com/package/uuid)
  
